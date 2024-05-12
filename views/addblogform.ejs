@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <%- include('./partials/head') %>
+
+    <title>Document</title>
+  </head>
+  <body>
+  <%- include('./partials/navbar') %>
+  <div class="container mt-4">
+    <form method="POST" action="/blog/add-new" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Blog Image</label>
+            <input type="file" name="blogImageURL" class="form-control" id="exampleInputPassword1">
+          </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Title</label>
+          <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3 ">
+             <label for="comment" class="form-label">Comments</label>
+            <textarea class="form-control" name="contentBody" id="comment" style="height: 100px"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+  </div>
+  
+    <%- include("./partials/scripts") %>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <%- include('./partials/head') %>
+
+    <title>Document</title>
+  </head>
+  <body>
+  <%- include('./partials/navbar') %>
+
+   <div class="container mt-3">
+    <h3><%= blog.title %></h3>
+    <img src="<%= blog.blogImageURL %>" alt="" srcset="" width="700px">
+    <h4><%= blog.contentBody %></h4>
+  </div>
+ 
+
+
+    <%- include("./partials/scripts") %>
+    <div class="container">
+      <form action="/comment/<%= blog._id %>" method="POST">
+      <h1>Comments <%= comments.length %></h1>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Add Comment</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="commentBody" aria-describedby="emailHelp">
+      </div>
+      <button type="submit" class="btn btn-success">Post</button>
+    </form>
+    <% comments.forEach(comment => { %>
+        <div class="d-flex justify-content-center align-items-center">
+          <h3><%= comment.createdBy.name %></h3>
+          <h5><%= comment.commentBody %></h5>
+
+        </div>
+    <% }) %>
+    </div>
+  </body>
+</html>
